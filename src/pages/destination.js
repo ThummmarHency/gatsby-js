@@ -1,7 +1,12 @@
 import React from "react";
+import Layout from "../components/layout";
 
 const Destination = () => {
-  return <div>Destination</div>;
+  return (
+    <Layout>
+      <div>Destination</div>
+    </Layout>
+  );
 };
 
 export default Destination;
