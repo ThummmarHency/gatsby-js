@@ -1,18 +1,36 @@
+import { graphql, Link } from "gatsby";
 import * as React from "react";
 import Layout from "../components/layout";
-import style from "../style/indexpage.module.css";
+import * as style from "../style/indexpage.module.css";
+import Img from "gatsby-image";
+const IndexPage = ({ data }) => {
+  console.log("data", data);
 
-const IndexPage = () => {
-  console.log("styles", style);
   return (
     <>
       <title>Home Page</title>
       <Layout>
-        <p className={style?.header}>Home page</p>
-        <button className={style?.btn}>click here</button>
+        <h1 className={style?.header}>Home page</h1>
+
+        <div>
+          <Img fluid={data?.file?.childImageSharp?.fluid} />
+        </div>
       </Layout>
     </>
   );
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query Banner {
+    file(relativePath: { eq: "images.png" }) {
+      id
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
