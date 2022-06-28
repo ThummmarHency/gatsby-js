@@ -1,6 +1,5 @@
 import { graphql, Link } from "gatsby";
 import * as React from "react";
-import Layout from "../components/layout";
 import * as style from "../style/indexpage.module.css";
 import Img from "gatsby-image";
 const IndexPage = ({ data }) => {
@@ -9,13 +8,11 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <title>Home Page</title>
-      <Layout>
-        <h1 className={style?.header}>Home page</h1>
+      <h1 className={style?.header}>Home page</h1>
 
-        <div>
-          <Img fluid={data?.file?.childImageSharp?.fluid} />
-        </div>
-      </Layout>
+      <div>
+        <Img fluid={data?.file?.childImageSharp?.fluid} />
+      </div>
     </>
   );
 };
